@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './Utils/i18n.js';
+import store from './Redux/reduxStore';
+import {Provider} from "react-redux";
+import { Suspense } from 'react';
+import Preloader from './Components/Preloader/Preloader';
+// import "slick-carousel/slick/slick.css"; 
+// import "slick-carousel/slick/slick-theme.css";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <Suspense fallback={<Preloader/>}>
+      <App/>
+    </Suspense>
+  </Provider>, document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
