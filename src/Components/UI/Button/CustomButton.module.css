@@ -1,0 +1,26 @@
+.main {
+    font-size: 24px !important;
+    border-radius: 4px !important;
+    border: 2px solid transparent !important;
+    font-weight: bold !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+.filled {
+    background-color: #C20000 !important;
+    color: white !important;
+}
+.filled:hover {
+    background-color: white !important;
+    color: #C20000 !important;
+    border: 2px solid #C20000 !important;
+}
+.outlined {
+    background-color: white !important;
+    color: #C20000 !important;
+    border: 2px solid #C20000 !important;
+}
+.outlined:hover {
+    background-color: #C20000 !important;
+    color: white !important;
+}
