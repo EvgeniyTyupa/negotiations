@@ -8,8 +8,8 @@ import store from './Redux/reduxStore';
 import {Provider} from "react-redux";
 import { Suspense } from 'react';
 import Preloader from './Components/Preloader/Preloader';
-// import "slick-carousel/slick/slick.css"; 
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 ReactDOM.render(
   <Provider store={store}>

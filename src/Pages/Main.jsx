@@ -3,6 +3,8 @@ import classes from './Main.module.css'
 import Container from '../Components/UI/Container/Container'
 import { useTranslation } from 'react-i18next'
 import CustomButton from '../Components/UI/Button/CustomButton'
+import SliderCustom from '../Components/Slider/Slider'
+import { cx } from '../Utils/classnames'
 
 import time_icon from '../Assets/icon6.png'
 import file_icon from '../Assets/icon7.png'
@@ -24,6 +26,7 @@ const Main = (props) => {
 
     return(
         <div className={classes.main}>
+            {/* HOME */}
             <div className={classes.home}>
                 <Container className={classes.homeContainer}>
                     <div className={classes.homeHeader}>
@@ -67,6 +70,7 @@ const Main = (props) => {
                     </div>
                 </Container>
             </div>
+            {/* POLEZNO */}
             <div className={classes.polezno}>
                 <Container className={classes.poleznoContainer}>
                     <div className={classes.poleznoInfo}>
@@ -87,6 +91,7 @@ const Main = (props) => {
                     <img src={micro} alt="micro"/>
                 </Container>
             </div>
+            {/* CHESS */}
             <div className={classes.chess}>
                 <Container className={classes.chessContainer}>
                     <img src={chess1} alt="chess"/>
@@ -94,12 +99,14 @@ const Main = (props) => {
                     <img src={chess3} alt="chess"/>
                 </Container>
             </div>
+            {/* DOWNLOAD */}
             <div className={classes.download}>
                 <h1>{t("download.one")}</h1>
                 <h1>{t("download.two")}</h1>
                 <h1>{t("download.three")}</h1>
                 <a href="howto.pdf" download>{t("actions.download")}</a>
             </div>
+            {/* PROGRAM */}
             <div className={classes.program}>
                 <Container className={classes.programContainer}>
                     <h2>{t("program.title")}</h2>
@@ -166,6 +173,7 @@ const Main = (props) => {
                     </div>
                 </Container>
             </div>
+            {/* SPEAKER */}
             <div className={classes.speaker}>
                 <Container className={classes.speakerContainer}>
                     <div className={classes.speakerImageContainer}>
@@ -181,6 +189,7 @@ const Main = (props) => {
                     </div>
                 </Container>
             </div>
+            {/* VALUES */}
             <div className={classes.values}>
                 <Container className={classes.valuesContainer}>
                     <h2>{t("value.title")}</h2>
@@ -209,6 +218,7 @@ const Main = (props) => {
                     </div>
                 </Container>
             </div>
+            {/* PRICE */}
             <div className={classes.price}>
                 <Container className={classes.priceContainer}>
                     <h2>{t("price.title")}</h2>
@@ -243,31 +253,42 @@ const Main = (props) => {
                     </div>
                 </Container>
             </div>
+            {/* ALERT */}
             <div className={classes.alert}>
                 <h2>{t("alert")}</h2>
             </div>
             <div className={classes.afterAlertBut}>
                 <CustomButton text={t("actions.register")}/>
             </div>
+            {/* BONUS */}
             <div className={classes.bonuses}>
                 <Container className={classes.bonusesContainer}>
                     <div className={classes.bonus}>
-                        <div className={classes.bonus1Main}>
-                            <div className={classes.bonus1Inner}>
-                                <h2>БОНУС №1:</h2>
-                                <p>{t("bonus.one")}</p>
-                            </div>
+                        <div className={cx(classes.bonusMain, classes.bonus1Main)}>
+                            <h2>БОНУС №1:</h2>
+                            <p>{t("bonus.one")}</p>
+                           
                         </div>
                     </div>
                     <div className={classes.bonus}>
-                        <div className={classes.bonus2Main}>
-                            <div className={classes.bonus2Inner}>
-                                <h2>БОНУС №2:</h2>
-                                <p>{t("bonus.two")}</p>
-                            </div>
+                        <div className={cx(classes.bonusMain, classes.bonus2Main)}>
+                            <h2>БОНУС №2:</h2>
+                            <p>{t("bonus.two")}</p>
                         </div>
                     </div>
                 </Container>
+            </div>
+            {/* COMMENTS */}
+            <div className={classes.comments}>
+                <h2>{t("comments.title")}</h2>
+                <Container>
+                    <div className={classes.sliderBack}>
+                        <SliderCustom/>
+                    </div>
+                </Container>
+                <div>
+                    <CustomButton text={t("actions.register")}/>
+                </div>
             </div>
         </div>
     )
