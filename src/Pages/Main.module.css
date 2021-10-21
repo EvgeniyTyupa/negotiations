@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    color: #212529;
 }
 
 /* HOME */
@@ -176,13 +177,13 @@
     background-color: #C20000;
     color: white;
     font-weight: bold;
-    border-radius: 4px !important;
+    border-radius:0px !important;
     border: 2px solid transparent;
     padding: 10px 50px;
     font-size: 24px;
     text-decoration: none;
     text-transform: uppercase;
-    margin-top: 15px;
+    margin-top: 35px;
 }
 .download a:hover {
     background-color: white;
@@ -208,7 +209,7 @@
 }
 .shedule {
     border: 4px solid #D30000;
-    padding: 0% 5% 10%;
+    padding: 0% 5% 7%;
     box-sizing: border-box;
     width: 100%;
 }
@@ -224,9 +225,28 @@
     display: flex;
     flex-direction: column;
 }
-.point h4 {
+.point h4, .final h4 {
     margin-block-start: 60px;
+    font-size: 1.75rem;
+    margin-block-end: 0;
 }
+.point p, .final p {
+    margin-block-end: 0;
+    margin-block-start: 5px;
+    font-weight: bold;
+}
+.point ul {
+    padding-left: 20px;
+}
+.point ul li {
+    padding-left: 10px;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+.point ul li::marker {
+   content: '-';
+}
+
 .final {
     width: 50%;
     margin: 0 auto;
@@ -235,6 +255,208 @@
     align-items: center;
     text-align: center;
 }
+.final span {
+    margin-top: 10px;
+}
 .progBut {
     margin-top: 100px;
+}
+
+/* SPEAKER */
+
+.speaker {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+.speakerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.speakerImageContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+}
+.speakerImageContainer img {
+    width: 100%;
+    height: 800px;
+}
+.speakerImageContainer label {
+    position: absolute;
+    font-size: 44px;
+    font-weight: bold;
+}
+.speakerTitle {
+    left: -140px;
+    top: 100px;
+    transform: rotate(90deg);
+}
+.speakerName {
+    right: -330px;
+    top: 40%;
+    transform: rotate(90deg);
+    width: max-content
+}
+.speakerAbout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    width: 50%;
+    text-align: left;
+}
+.speakerAbout p {
+    font-size: 16px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin: 15px 0;
+}
+
+
+/* VALUES */
+
+.values {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 130px;
+}
+.valuesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.values h2 {
+    font-size: 34px;   
+}
+.value {
+    display: flex;
+    align-items: center;
+    width: 470px;
+    margin-top: 15px;
+}
+.value span {
+    margin-left: 15px;
+    font-size: 16px;
+}
+.valueBut {
+    margin-top: 75px;
+}
+
+/* PRICE */
+
+.price {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+.price h2 {
+    font-size: 34px;
+    text-transform: uppercase;
+}
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.priceBlock {
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid #C20000;
+    border-bottom: 3px solid #C20000;
+    padding: 30px;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+.priceBlock h4 {
+    font-size: 30px;
+    text-align: center;
+}
+.pricePluwki {
+    width: 50%;
+}
+.pricePluwki h4 {
+    font-size: 30px;
+    text-align: center;
+}
+.pricePluwki ul li {
+    margin: 10px 0;   
+}
+.pricePluwki ul li::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #C20000;
+    position: absolute;
+    font-weight: bold;
+    transform: translateX(-20px) translateY(6px);
+}
+
+/* ALERT */
+
+.alert {
+    width: 100%;
+    height: 92px;
+    text-align: center;
+    background-color: #C20000;
+    margin-top: 100px;
+}
+.alert h2 {
+    font-size: 34px;
+    color:white;
+}
+.afterAlertBut {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* BONUS */
+
+.bonuses {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.bonusesContainer {
+    display: flex;
+    justify-content: space-around;
+}
+.bonus {
+    width: 300px;
+    height: 300px;
+    border: 3px solid #C20000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bonus1Main {
+    width: 300px;
+    height: 240px;
+    border: 3px solid #C20000;
+    position: relative;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.bonus1Main h2 {
+    margin-bottom: auto;
+    background-color: white;
+    width: fit-content;
+    height: 60px;
+    text-align: center;
+}
+.bonus1Main p {
+    margin-top: auto;
+    margin-bottom: auto;
 }
