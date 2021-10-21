@@ -20,6 +20,11 @@ import value3 from '../Assets/icon3.png'
 import value4 from '../Assets/icon4.png'
 import value5 from '../Assets/icon5.png'
 import price from '../Assets/price3.png'
+import square from '../Assets/frame.svg'
+import inst from '../Assets/inst.png'
+import fb from '../Assets/fb.png'
+import globe from '../Assets/globe.png'
+import telegram from '../Assets/telegram.png'
 
 const Main = (props) => {
     const { t } = useTranslation()
@@ -281,15 +286,49 @@ const Main = (props) => {
             {/* COMMENTS */}
             <div className={classes.comments}>
                 <h2>{t("comments.title")}</h2>
-                <Container>
+                <Container className={classes.commentsContainer}>
                     <div className={classes.sliderBack}>
                         <SliderCustom/>
                     </div>
                 </Container>
-                <div>
+                <div className={classes.comBut}>
                     <CustomButton text={t("actions.register")}/>
                 </div>
             </div>
+            <img src={square} alt="squares" className={classes.squares}/>
+            <div className={classes.chessBg}/>
+            <footer className={classes.footer}>
+                <h3>{t("footer.title1")}</h3>
+                <h3>{t("footer.title2")}</h3>
+                <Container className={classes.topFooter}>
+                    <div className={classes.footBut}>
+                        <CustomButton text={t("actions.consultation")}/>
+                        <label>{t("footer.sub1")}</label>
+                    </div>
+                    <div className={classes.footBut}>
+                        <CustomButton text={t("actions.train")}/>
+                        <label>{t("footer.sub2")}</label>
+                    </div>
+                </Container>
+                <div className={classes.footBot}>
+                    <Container className={classes.footBotContainer}>
+                        <div className={classes.links}>
+                            <a href="https://www.instagram.com/profi_business_school/" target="_blank" rel="noreferrer nofollow">
+                                <img src={inst} alt="inst"/>
+                            </a>
+                            <a href="https://www.facebook.com/profispaceschool/" target="_blank" rel="noreferrer nofollow">
+                                <img src={fb} alt="fb"/>
+                            </a>
+                            <a href="https://t.me/profi_space" target="_blank" rel="noreferrer nofollow">
+                                <img src={telegram} alt="tg"/>
+                            </a>
+                            <a href="https://www.profi-space.com/" target="_blank" rel="noreferrer nofollow">
+                                <img src={globe} alt="web"/>
+                            </a>
+                        </div>
+                    </Container>
+                </div>
+            </footer>
         </div>
     )
 }

@@ -9,6 +9,7 @@ const SliderCustom = (props) => {
             {comments.map(item => (
                 <div className={classes.comment}>
                     <p>{item.text}</p>
+                    <span>{item.person}</span>
                 </div>
             ))}
         </Slider>

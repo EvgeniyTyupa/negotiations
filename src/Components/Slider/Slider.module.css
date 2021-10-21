@@ -1,3 +1,20 @@
 .comment {
     width: 60% !important;
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.comment p {
+    font-weight: 600;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+}
+.comment span {
+    align-self: flex-end;
+    width: 70%;
+    text-align: right;
 }
