@@ -1,6 +1,6 @@
 import classes from './Preloader.module.css'
 import preloader from '../../Assets/preloader.svg'
-import BackgroundLayout from '../BackgroundLayout/BackgroundLayout'
+import BackgroundLayout from '../UI/BackgroundLayout/BackgroundLayout'
 
 const Preloader = (props) => {
     return(

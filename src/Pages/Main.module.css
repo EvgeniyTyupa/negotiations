@@ -587,8 +587,47 @@
 }
 .links {
     width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+.links a {
+    transition-duration: .3s;
+}
+.links a:hover {
+    opacity: .8;
 }
 .links img {
     width: 30px;
     margin: 0 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .homeHeader {
+        justify-content: center;
+    }
+    .homeHeader h1 {
+        margin-left: 0;
+    }
+    .redBall {
+        width: 350px;
+        height: 350px;
+        right: 13%;
+    }
+    .homeSub {
+        padding-left: 130px;
+    }
+    .dates {
+        align-items: center;
+        padding-left: 0;
+    }
+    .pluwki {
+        align-items: center;
+    }
+    .pluwka {
+        width: 35%;
+        margin-bottom: 25px;
+        flex-direction: column;
+        text-align: center;
+    }
 }

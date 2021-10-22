@@ -12,7 +12,7 @@
 .container button {
     outline: none;
     cursor: pointer;
-    color: black;
+    color: #212529;
     font-size: 14px;
     border: none;
     background-color: transparent;

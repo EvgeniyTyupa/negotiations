@@ -25,12 +25,62 @@ import inst from '../Assets/inst.png'
 import fb from '../Assets/fb.png'
 import globe from '../Assets/globe.png'
 import telegram from '../Assets/telegram.png'
+import SubscribeForm from '../Components/SubscribeForm/SubscribeForm'
+import { useEffect, useRef, useState } from 'react'
+import Navbar from '../Components/Navbar/Navbar'
+import Register from '../Components/Register/Register'
 
 const Main = (props) => {
     const { t } = useTranslation()
 
+    const [isOpenRegister, setIsOpenRegister] = useState(false)
+    const [actionType, setActionType] = useState(null)
+
+    const [userURL, setUserURL] = useState(null)
+
+    const handleRegister = () => {
+        setActionType("register")
+        setIsOpenRegister(!isOpenRegister)
+    }
+
+    const handleRegisterConsultation = () => {
+        setActionType("consultation")
+        setIsOpenRegister(!isOpenRegister)
+    }
+
+    const handleRegisterTraining = () => {
+        setActionType("training")
+        setIsOpenRegister(!isOpenRegister)
+    }
+
+    const closeRegister = () => {
+        setIsOpenRegister(false)
+        setActionType(null)
+    }
+
+    const aboutRef = useRef()
+    const programRef = useRef()
+    const forWhoRef = useRef()
+    const priceRef = useRef()
+
+    const handleScroll = (index) => {
+        refs[index].current.scrollIntoView()
+    }
+
+    const scrollToPay = () => {
+        priceRef.current.scrollIntoView()
+    }
+
+    const refs = [aboutRef, programRef, forWhoRef, priceRef]
+
+    useEffect(() => {
+        setUserURL(window.location.href)
+    }, [])
+
     return(
         <div className={classes.main}>
+            <Navbar handleScroll={handleScroll}/>
+            {isOpenRegister && <Register onClose={closeRegister} actionType={actionType} userURL={userURL}/>}
             {/* HOME */}
             <div className={classes.home}>
                 <Container className={classes.homeContainer}>
@@ -70,13 +120,13 @@ const Main = (props) => {
                         </div>
                     </div>
                     <div className={classes.buttons}>
-                        <CustomButton text={t("actions.register")}/>
-                        <CustomButton text={t("actions.pay")} type="outlined"/>
+                        <CustomButton text={t("actions.register")} onClick={handleRegister}/>
+                        <CustomButton text={t("actions.pay")} onClick={scrollToPay} type="outlined"/>
                     </div>
                 </Container>
             </div>
             {/* POLEZNO */}
-            <div className={classes.polezno}>
+            <div className={classes.polezno} ref={aboutRef}>
                 <Container className={classes.poleznoContainer}>
                     <div className={classes.poleznoInfo}>
                         <h3>
@@ -112,7 +162,7 @@ const Main = (props) => {
                 <a href="howto.pdf" download>{t("actions.download")}</a>
             </div>
             {/* PROGRAM */}
-            <div className={classes.program}>
+            <div className={classes.program} ref={programRef}>
                 <Container className={classes.programContainer}>
                     <h2>{t("program.title")}</h2>
                     <div className={classes.shedule}>
@@ -174,7 +224,7 @@ const Main = (props) => {
                         </div>
                     </div>
                     <div className={classes.progBut}>
-                        <CustomButton text={t("actions.register")}/>
+                        <CustomButton text={t("actions.register")} onClick={handleRegister}/>
                     </div>
                 </Container>
             </div>
@@ -195,7 +245,7 @@ const Main = (props) => {
                 </Container>
             </div>
             {/* VALUES */}
-            <div className={classes.values}>
+            <div className={classes.values} ref={forWhoRef}>
                 <Container className={classes.valuesContainer}>
                     <h2>{t("value.title")}</h2>
                     <div className={classes.value}>
@@ -219,12 +269,12 @@ const Main = (props) => {
                         <span>{t("value.five")}</span>
                     </div>
                     <div className={classes.valueBut}>
-                        <CustomButton text={t("actions.register")}/>
+                        <CustomButton text={t("actions.register")} onClick={handleRegister}/>
                     </div>
                 </Container>
             </div>
             {/* PRICE */}
-            <div className={classes.price}>
+            <div className={classes.price} ref={priceRef}>
                 <Container className={classes.priceContainer}>
                     <h2>{t("price.title")}</h2>
                     <div className={classes.priceBlock}>
@@ -263,7 +313,7 @@ const Main = (props) => {
                 <h2>{t("alert")}</h2>
             </div>
             <div className={classes.afterAlertBut}>
-                <CustomButton text={t("actions.register")}/>
+                <CustomButton text={t("actions.register")} onClick={handleRegister}/>
             </div>
             {/* BONUS */}
             <div className={classes.bonuses}>
@@ -292,7 +342,7 @@ const Main = (props) => {
                     </div>
                 </Container>
                 <div className={classes.comBut}>
-                    <CustomButton text={t("actions.register")}/>
+                    <CustomButton text={t("actions.register")} onClick={handleRegister}/>
                 </div>
             </div>
             <img src={square} alt="squares" className={classes.squares}/>
@@ -302,11 +352,11 @@ const Main = (props) => {
                 <h3>{t("footer.title2")}</h3>
                 <Container className={classes.topFooter}>
                     <div className={classes.footBut}>
-                        <CustomButton text={t("actions.consultation")}/>
+                        <CustomButton text={t("actions.consultation")} onClick={handleRegisterConsultation}/>
                         <label>{t("footer.sub1")}</label>
                     </div>
                     <div className={classes.footBut}>
-                        <CustomButton text={t("actions.train")}/>
+                        <CustomButton text={t("actions.train")} onClick={handleRegisterTraining}/>
                         <label>{t("footer.sub2")}</label>
                     </div>
                 </Container>
@@ -325,6 +375,9 @@ const Main = (props) => {
                             <a href="https://www.profi-space.com/" target="_blank" rel="noreferrer nofollow">
                                 <img src={globe} alt="web"/>
                             </a>
+                        </div>
+                        <div>
+                            <SubscribeForm/>
                         </div>
                     </Container>
                 </div>
