@@ -85,7 +85,7 @@ const Navbar = (props) => {
                 <button onClick={() => handleScroll(1)}>{t("navbar.two")}</button>
                 <button onClick={() => handleScroll(2)}>{t("navbar.three")}</button>
                 <button onClick={() => handleScroll(3)}>{t("navbar.four")}</button>
-                <TextField select defaultValue={lang} classes={material} onChange={handleLanguage} variant="outlined">
+                <TextField select defaultValue={lang ? lang : "ru"} classes={material} onChange={handleLanguage} variant="outlined">
                     <MenuItem value="ru">RU</MenuItem>
                     <MenuItem value="ua">UA</MenuItem>
                 </TextField>
