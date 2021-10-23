@@ -35,6 +35,15 @@
 .homeHeader h1 + h1 {
     color: white;
 }
+.titleUA {
+    font-size: 80px !important;
+    position: relative;
+    top: 15px;
+}
+.titleContainer {
+    z-index: 1;
+    color: white;
+}
 .redBall {
     width: 400px;
     height: 400px;
@@ -51,9 +60,13 @@
     font-size: 34px;
     padding-left: 50px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 .homeSub p {
-    width: 50%;
+    width: 40%;
+    margin-block-end: 0;
+    margin-block-start: 0;
 }
 .dates {
     display: flex;
@@ -629,5 +642,468 @@
         margin-bottom: 25px;
         flex-direction: column;
         text-align: center;
+    }
+    .pluwka span {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .buttons {
+        padding: 0;
+    }
+    .polezno h3 {
+        font-size: 21px;
+    }
+    .speakerImageContainer {
+        width: 60%;
+    }
+    .speakerAbout {
+        width: 60%;
+    }
+    .values {
+        margin-top: 90px;
+    }
+    .program {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .titleUA {
+        font-size: 60px !important;
+        top: 20px;
+    }
+    .poleznoContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .poleznoContainer img {
+        width: 50%;
+        margin-top: 20px;
+    }
+    .poleznoInfo {
+        width: 100%;
+        text-align: center;
+    }
+    .chessContainer img {
+        width: 30%;
+        height: 100%;
+    }
+    .download h1 {
+        font-size: 30px;
+    }
+    .speakerImageContainer {
+        width: 80%;
+    }
+    .speakerImageContainer img {
+        height: auto;
+    }
+    .speakerAbout {
+        width: 80%;
+    }
+    .values {
+        margin-top: 50px;
+    }
+    .price {
+        margin-top: 100px;
+    }
+    .alert {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .alert h2 {
+        font-size: 26px;
+    }
+    .chessBg {
+        height: 400px;
+    }
+    .footer {
+        margin-top: 120px;
+    }
+    .redBall {
+        width: 300px;
+        height: 300px;
+        right: 9%;
+        top: 14%;
+    }
+    .homeSub {
+        padding-left: 80px;
+    }
+    .homeSub p {
+        font-size: 28px;
+    }
+    .homeHeader h1 {
+        font-size: 86px;
+    }
+    .sliderBack {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .titleUA {
+        font-size: 40px !important;
+        top: 15px;
+    }
+    .homeHeader h1 {
+        font-size: 60px;
+    }
+    .redBall {
+        width: 200px;
+        height: 200px;
+        right: 11%
+    }
+    .homeSub {
+        padding-left: 60px;
+    }
+    .homeSub p {
+        font-size: 20px;
+    }
+    .dates {
+        text-align: center;
+    }
+    .dates p {
+        font-size: 16px;
+    }
+    .datesOne {
+        margin-bottom: 10px;
+    }
+    .pluwki {
+        align-items: flex-start;
+    }
+    .pluwkaImgContainer {
+        width: 30px;
+        height: 30px;
+    }
+    .pluwkaImgContainer img {
+        width: 100%;
+    }
+    .pluwka span {
+        font-size: 14px;
+    }
+    .buttons {
+        flex-direction: column;
+    }
+    .buttons button {
+        width: 100% !important;
+    }
+    .buttons button + button {
+        margin-top: 15px;
+    }
+    .polezno h3 {
+        font-size: 18px;
+    }
+    .download {
+        margin-top: 60px;
+    }
+    .download h1 {
+        font-size: 20px;
+    }
+    .program {
+        margin-top: 70px;
+    }
+    .sides {
+        flex-direction: column;
+    }
+    .side {
+        width: 100%;
+    }
+    .point {
+        text-align: center;
+    }
+    .point ul li::marker {
+        content: '';
+    }
+    .point ul {
+        padding-left: 0;
+    }
+    .point ul li {
+        padding-left: 0;
+    }
+    .final {
+        width: 100%;
+    }
+    .speakerImageContainer {
+        width: 70%;
+    }
+    .speakerImageContainer label {
+        font-size: 32px;
+    }
+    .speakerTitle {
+        left: -100px;
+    }
+    .speakerName {
+        right: -240px;
+    }
+    .pricePluwki {
+        width: 100%;
+    }
+    .alert h2 {
+        font-size: 20px;
+    }
+    .bonuses {
+        margin-top: 80px;
+    }
+    .bonusesContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .bonus + .bonus {
+        margin-top: 25px;
+    }
+    .chessBg {
+        height: 300px;
+    }
+    .footer h3 {
+        font-size: 18px;
+    }
+    .topFooter {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footBut {
+        width: 100%;
+    }
+    .footBut + .footBut {
+        margin-top: 25px;
+    }
+    .topFooter button {
+        width: 100% !important;
+    }
+    .footBotContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .links {
+        margin-bottom: 30px;
+        width: 100%;
+        justify-content: center;
+    }
+    .links a {
+        margin: 0 10px;
+    }
+    .home {
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .titleUA {
+        font-size: 30px !important;
+        top: 12px;
+    }
+    .homeHeader h1 {
+        font-size: 48px;
+    }
+    .homeSub {
+        padding-left: 35px;
+    }
+    .homeSub p {
+        font-size: 17px;
+        width: 45%;
+    }
+    .valuesContainer {
+        padding: 0 10%;
+        box-sizing: border-box;
+    }
+    .value {
+        width: 100%;
+    }
+    .values h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+    .value span {
+        font-size: 14px;
+    }
+    .redBall {
+        width: 160px;
+        height: 160px;
+        right: 6%;
+    }
+    .dates {
+        padding: 0 5%;
+        box-sizing: border-box;
+    }
+    .pluwki {
+        flex-wrap: wrap;
+    }
+    .pluwka {
+        width: 50%;
+    }
+    .pluwkaImgContainer {
+        padding: 15px;
+    }
+    .polezno {
+        margin-top: 50px;
+    }
+    .buttons {
+        margin-top: 40px;
+    }
+    .polezno h3 {
+        font-size: 16px;
+    }
+    .chess {
+        margin-top: 60px;
+    }
+    .download {
+        text-align: center;
+    }
+    .download h1 {
+        font-size: 16px;
+    }
+    .program h2 {
+        font-size: 32px;
+    }
+    .speaker {
+        margin-top: 75px;
+    }
+    .speakerImageContainer label {
+        font-size: 22px;
+    }
+    .speakerTitle {
+        left: -70px;
+        top: 65px;
+    }
+    .speakerName {
+        right: -165px;
+        top: 44%;
+    }
+    .speakerAbout p {
+        font-size: 14px;
+    }
+    .speakerAbout {
+        text-align: center;
+        width: 100%;
+    }
+    .value img {
+        width: 25px;
+    }
+    .price {
+        margin-top: 50px;
+    }
+    .price h2 {
+        font-size: 28px;
+    }
+    .alert h2 {
+        font-size: 16px;
+    }
+    .comments h2 {
+        font-size: 28px;
+    }
+    .comments {
+        margin-top: 120px;
+    }
+    .chessBg {
+        height: 100px;
+    }
+    .footer {
+        margin-top: 70px;
+    }
+    .footer h3 {
+        font-size: 14px;
+    }
+    .topFooter button {
+        font-size: 16px !important;
+    }
+    .bonus {
+        transform: scale(0.8);
+    }
+    .point h4 {
+        font-size: 1.5rem;
+    }
+    .point ul li {
+        font-size: 14px;
+    }
+    .point span {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .redBall {
+        right: 0;
+        top: 0;
+    }
+    .homeSub {
+        padding-left: 15px;
+    }
+    .homeSub p {
+        font-size: 15px;
+    }
+    .dates {
+        padding: 0;
+    }
+    .pluwkaImgContainer img {
+        width: 90%;
+    }
+    .footBot {
+        margin-top: 70px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .titleUA {
+        top: 8px;
+    }
+    .price img {
+        width: 100%;
+    }
+    .homeHeader h1 {
+        font-size: 40px;
+    }
+    .redBall {
+        width: 140px;
+        height: 140px;
+        right: 3%;
+    }
+    .homeSub p {
+        font-size: 14px;
+    }
+    .dates p {
+        font-size: 14px;
+    }
+    .pluwka span {
+        font-size: 12px;
+    }
+    .buttons button {
+        font-size: 16px !important;
+    }
+    .polezno h3 {
+        font-size: 14px;
+    }
+    .polezno {
+        margin-top: 40px;
+    }
+    .download h1 {
+        font-size: 13px;
+    }
+    .price h2 {
+        font-size: 24px;
+    }
+    .priceBlock {
+        margin-top: 20px;
+    }
+    .pricePluwki h4 {
+        font-size: 20px;
+    }
+    .alert {
+        height: 56px;
+    }
+    .alert h2 {
+        font-size: 14px;
+    }
+    .afterAlertBut {
+        margin-top: 50px;
+    }
+    .bonuses {
+        margin-top: 40px;
+    }
+    .bonus {
+        transform: scale(0.7);
+    }
+    .comments h2 {
+        font-size: 20px;
     }
 }

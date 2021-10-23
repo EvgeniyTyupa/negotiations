@@ -7,7 +7,7 @@ const SliderCustom = (props) => {
     return(
         <Slider slidesPerView={1}>
             {comments.map(item => (
-                <div className={classes.comment}>
+                <div className={classes.comment} key={item.id}>
                     <p>{item.text}</p>
                     <span>{item.person}</span>
                 </div>

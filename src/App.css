@@ -4,3 +4,6 @@ html {
 body {
     font-family: 'Montserrat';
 }
+.main {
+    overflow-x: hidden;
+}

@@ -5,6 +5,11 @@ import { MenuItem, TextField } from '@mui/material'
 import { connect } from 'react-redux'
 import { setCurrentLanguage } from '../../Redux/commonReducer'
 import { makeStyles } from '@mui/styles'
+import Burger from './Burger/Burger'
+import { useEffect } from 'react'
+
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const useSelectStyles = makeStyles({
     root: {
@@ -58,7 +63,7 @@ const useSelectStyles = makeStyles({
 })
 
 const Navbar = (props) => {
-    const { handleScroll } = props
+    const { handleScroll, refs, currentLanguage, lang } = props
 
     const material = useSelectStyles()
 
@@ -69,17 +74,24 @@ const Navbar = (props) => {
         props.setCurrentLanguage(event.target.value)
     }
 
+    useEffect(() => {
+        Aos.init({duration: 1000});
+    }, [])
+
     return(
-        <div className={classes.main}>
+        <div className={classes.main} data-aos="fade-bottom">
             <Container className={classes.container}>
                 <button onClick={() => handleScroll(0)}>{t("navbar.one")}</button>
                 <button onClick={() => handleScroll(1)}>{t("navbar.two")}</button>
                 <button onClick={() => handleScroll(2)}>{t("navbar.three")}</button>
                 <button onClick={() => handleScroll(3)}>{t("navbar.four")}</button>
-                <TextField select defaultValue="ru" classes={material} onChange={handleLanguage} variant="outlined">
+                <TextField select defaultValue={lang} classes={material} onChange={handleLanguage} variant="outlined">
                     <MenuItem value="ru">RU</MenuItem>
                     <MenuItem value="ua">UA</MenuItem>
                 </TextField>
+            </Container>
+            <Container className={classes.burger}>
+                <Burger refs={refs}/>
             </Container>
         </div>
     )

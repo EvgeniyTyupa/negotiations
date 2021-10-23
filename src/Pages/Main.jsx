@@ -6,6 +6,15 @@ import CustomButton from '../Components/UI/Button/CustomButton'
 import SliderCustom from '../Components/Slider/Slider'
 import { cx } from '../Utils/classnames'
 
+import SubscribeForm from '../Components/SubscribeForm/SubscribeForm'
+import { useEffect, useRef, useState } from 'react'
+import Navbar from '../Components/Navbar/Navbar'
+import Register from '../Components/Register/Register'
+import { setCurrentLanguage } from '../Redux/commonReducer'
+import { useHistory, useLocation } from 'react-router'
+import Preloader from '../Components/Preloader/Preloader'
+import Thankyou from '../Components/Thankyou/Thankyou'
+
 import time_icon from '../Assets/icon6.png'
 import file_icon from '../Assets/icon7.png'
 import play_icon from '../Assets/icon8.png'
@@ -25,15 +34,20 @@ import inst from '../Assets/inst.png'
 import fb from '../Assets/fb.png'
 import globe from '../Assets/globe.png'
 import telegram from '../Assets/telegram.png'
-import SubscribeForm from '../Components/SubscribeForm/SubscribeForm'
-import { useEffect, useRef, useState } from 'react'
-import Navbar from '../Components/Navbar/Navbar'
-import Register from '../Components/Register/Register'
+
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Main = (props) => {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+
+    const search = useLocation().search
+    const lang = new URLSearchParams(search).get('lang')
+
+    const history = useHistory()
 
     const [isOpenRegister, setIsOpenRegister] = useState(false)
+    const [isOpenThankyou, setIsOpenThankyou] = useState(false)
     const [actionType, setActionType] = useState(null)
 
     const [userURL, setUserURL] = useState(null)
@@ -58,6 +72,10 @@ const Main = (props) => {
         setActionType(null)
     }
 
+    const handleThankyou = () => {
+        setIsOpenThankyou(!isOpenThankyou)
+    }
+
     const aboutRef = useRef()
     const programRef = useRef()
     const forWhoRef = useRef()
@@ -75,31 +93,64 @@ const Main = (props) => {
 
     useEffect(() => {
         setUserURL(window.location.href)
+    }, [window.location.href])
+
+    useEffect(() => {
+        if(lang === "ru" || lang === "ua"){
+            i18n.changeLanguage(lang)
+            props.setCurrentLanguage(lang)
+        }
+    }, [])
+
+    useEffect(() => {
+        if(window.location.pathname === "/thankyou"){
+            setIsOpenThankyou(true)
+        }
+    }, [window.location.pathname])
+
+    useEffect(() => {
+        if(props.isSuccess){
+            setIsOpenRegister(false)
+            history.push('/thankyou')
+        }
+    }, [props.isSuccess])
+
+    useEffect(() => {
+        history.push(history.location.pathname + `?lang=${props.currentLanguage}`)
+    }, [props.currentLanguage])
+
+    useEffect(() => {
+        Aos.init({duration: 1000});
     }, [])
 
     return(
         <div className={classes.main}>
-            <Navbar handleScroll={handleScroll}/>
+            {props.isFetching && <Preloader/>}
+            <Navbar handleScroll={handleScroll} refs={refs} lang={lang}/>
             {isOpenRegister && <Register onClose={closeRegister} actionType={actionType} userURL={userURL}/>}
+            {isOpenThankyou && <Thankyou onClick={handleThankyou}/>}
             {/* HOME */}
             <div className={classes.home}>
                 <Container className={classes.homeContainer}>
                     <div className={classes.homeHeader}>
-                        <h1>{t("home.titleOne")}&nbsp;</h1>
-                        <h1>{t("home.titleTwo")}</h1>
-                        <div className={classes.redBall}/>
+                        <h1 data-aos="fade-left" data-aos-delay="700" data-aos-duration="1500">{t("home.titleOne")}&nbsp;</h1>
+                        <div data-aos="fade-down" data-aos-delay="1400" data-aos-duration="1500" className={classes.titleContainer}>
+                            <h1 className={props.currentLanguage === "ua" ? classes.titleUA : undefined}>{t("home.titleTwo")}</h1>
+                        </div>
+                        <div data-aos="fade" data-aos-delay="300" data-aos-duration="1500" className={classes.redBall}/>
                     </div>
-                    <div className={classes.homeSub}>
+                    <div className={classes.homeSub} data-aos="fade" data-aos-delay="2100" data-aos-duration="1500">
                         <p>{t("home.sub")}</p>
+                        <p>{t("home.subName")}</p>
                     </div>
-                    <div className={classes.dates}>
+                    <div className={classes.dates} data-aos="fade-up" data-aos-delay="2800" data-aos-duration="1500">
                         <div className={classes.datesOne}>
                             <div className={classes.quadro}/>
                             <p>{t("home.dates")}</p>
                         </div>
                         <p>{t("home.shedule")}</p>
                     </div>
-                    <div className={classes.pluwki}>
+                    <div className={classes.pluwki}  data-aos="fade-up" data-aos-delay="2800" data-aos-duration="1500">
                         <div className={classes.pluwka}>
                             <div className={classes.pluwkaImgContainer}>
                                 <img src={time_icon} alt="time"/>
@@ -119,7 +170,7 @@ const Main = (props) => {
                             <span>+ {t("home.pluwki.three1")}<br/>{t("home.pluwki.three2")}<br/>{t("home.pluwki.three3")}</span>
                         </div>
                     </div>
-                    <div className={classes.buttons}>
+                    <div className={classes.buttons} data-aos="fade-up" data-aos-duration="1500">
                         <CustomButton text={t("actions.register")} onClick={handleRegister}/>
                         <CustomButton text={t("actions.pay")} onClick={scrollToPay} type="outlined"/>
                     </div>
@@ -129,7 +180,7 @@ const Main = (props) => {
             <div className={classes.polezno} ref={aboutRef}>
                 <Container className={classes.poleznoContainer}>
                     <div className={classes.poleznoInfo}>
-                        <h3>
+                        <h3 data-aos="fade-left" data-aos-duration="1500">
                             {t("polezno.title1")}
                             <br/>
                             <br/>{t("polezno.title2")}
@@ -159,10 +210,10 @@ const Main = (props) => {
                 <h1>{t("download.one")}</h1>
                 <h1>{t("download.two")}</h1>
                 <h1>{t("download.three")}</h1>
-                <a href="howto.pdf" download>{t("actions.download")}</a>
+                <a href="howto.pdf" download data-aos="zoom-in" data-aos-duration="500">{t("actions.download")}</a>
             </div>
             {/* PROGRAM */}
-            <div className={classes.program} ref={programRef}>
+            <div className={classes.program} ref={programRef}  data-aos="fade-up" data-aos-duration="1500">
                 <Container className={classes.programContainer}>
                     <h2>{t("program.title")}</h2>
                     <div className={classes.shedule}>
@@ -229,7 +280,7 @@ const Main = (props) => {
                 </Container>
             </div>
             {/* SPEAKER */}
-            <div className={classes.speaker}>
+            <div className={classes.speaker} data-aos="fade" data-aos-duration="1500">
                 <Container className={classes.speakerContainer}>
                     <div className={classes.speakerImageContainer}>
                         <label className={classes.speakerTitle}>{t("speaker.title")}</label>
@@ -245,7 +296,7 @@ const Main = (props) => {
                 </Container>
             </div>
             {/* VALUES */}
-            <div className={classes.values} ref={forWhoRef}>
+            <div className={classes.values} ref={forWhoRef} data-aos="fade-up" data-aos-duration="1500">
                 <Container className={classes.valuesContainer}>
                     <h2>{t("value.title")}</h2>
                     <div className={classes.value}>
@@ -274,7 +325,7 @@ const Main = (props) => {
                 </Container>
             </div>
             {/* PRICE */}
-            <div className={classes.price} ref={priceRef}>
+            <div className={classes.price} ref={priceRef} data-aos="fade-up" data-aos-duration="1500">
                 <Container className={classes.priceContainer}>
                     <h2>{t("price.title")}</h2>
                     <div className={classes.priceBlock}>
@@ -310,22 +361,22 @@ const Main = (props) => {
             </div>
             {/* ALERT */}
             <div className={classes.alert}>
-                <h2>{t("alert")}</h2>
+                <h2 data-aos="zoom-in" data-aos-duration="1500">{t("alert")}</h2>
             </div>
-            <div className={classes.afterAlertBut}>
+            <div className={classes.afterAlertBut} data-aos="fade-up" data-aos-duration="1500">
                 <CustomButton text={t("actions.register")} onClick={handleRegister}/>
             </div>
             {/* BONUS */}
             <div className={classes.bonuses}>
                 <Container className={classes.bonusesContainer}>
-                    <div className={classes.bonus}>
+                    <div className={classes.bonus} data-aos="fade-up" data-aos-duration="1500">
                         <div className={cx(classes.bonusMain, classes.bonus1Main)}>
                             <h2>БОНУС №1:</h2>
                             <p>{t("bonus.one")}</p>
                            
                         </div>
                     </div>
-                    <div className={classes.bonus}>
+                    <div className={classes.bonus} data-aos="fade-up" data-aos-duration="1500">
                         <div className={cx(classes.bonusMain, classes.bonus2Main)}>
                             <h2>БОНУС №2:</h2>
                             <p>{t("bonus.two")}</p>
@@ -347,7 +398,7 @@ const Main = (props) => {
             </div>
             <img src={square} alt="squares" className={classes.squares}/>
             <div className={classes.chessBg}/>
-            <footer className={classes.footer}>
+            <footer className={classes.footer} data-aos="fade-down" data-aos-duration="1500">
                 <h3>{t("footer.title1")}</h3>
                 <h3>{t("footer.title2")}</h3>
                 <Container className={classes.topFooter}>
@@ -386,4 +437,12 @@ const Main = (props) => {
     )
 }
 
-export default connect()(Main)
+let mapStateToProps = (state) => ({
+    isFetching: state.common.isFetching,
+    isSuccess: state.common.isSuccess,
+    currentLanguage: state.common.currentLanguage
+})
+
+export default connect(mapStateToProps, {
+    setCurrentLanguage
+})(Main)

@@ -5,6 +5,8 @@ import { TextField, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import { saveToGoogleTable } from '../../Redux/commonReducer'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -25,17 +27,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Register = (props) => {
-    const { onClose, actionType, userURL } = props
+    const { onClose, actionType, userURL, saveToGoogleTable } = props
 
     const material = useStyles()
 
     const { t } = useTranslation()
 
-    const { handleSubmit, control, reset, formState: { errors } } = useForm()
+    const { handleSubmit, control, reset } = useForm()
 
     const onSubmit = (data) => {
+        data.email = data.email.toLowerCase()
         data.userURL = userURL
         data.actionType = actionType
+
+        saveToGoogleTable(data)
+
         reset({
             name: "",
             email: "",
@@ -132,4 +138,7 @@ const Register = (props) => {
     )
 }
 
-export default Register
+
+export default connect(null, {
+    saveToGoogleTable
+})(Register)

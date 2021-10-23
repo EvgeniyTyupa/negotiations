@@ -18,3 +18,25 @@
     width: 70%;
     text-align: right;
 }
+
+@media screen and (max-width: 900px) {
+    .comment {
+        width: 75% !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .comment p {
+        font-size: 16px;
+    }
+    .comment {
+        width: 85% !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .comment span {
+        font-size: 12px;
+        width: 100%;
+    }
+}

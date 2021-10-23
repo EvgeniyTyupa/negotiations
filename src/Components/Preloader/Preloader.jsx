@@ -4,7 +4,7 @@ import BackgroundLayout from '../UI/BackgroundLayout/BackgroundLayout'
 
 const Preloader = (props) => {
     return(
-        <BackgroundLayout>
+        <BackgroundLayout className={classes.index}>
             <img src={preloader} alt="preloader" className={classes.main}/>
         </BackgroundLayout>
     )

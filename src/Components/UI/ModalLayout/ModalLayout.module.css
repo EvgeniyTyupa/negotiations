@@ -5,6 +5,7 @@
     padding: 15px;
     box-sizing: border-box;
     background-color: white;
+    z-index: 101;
 }
 .header {
     width: 100%;

@@ -21,3 +21,21 @@
 .container button:hover {
     text-decoration: underline;
 }
+.burger {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        display: none;
+    }
+    .burger {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .main {
+        position: fixed;
+        z-index: 100;
+    }
+}
