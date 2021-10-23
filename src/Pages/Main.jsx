@@ -93,7 +93,9 @@ const Main = (props) => {
 
     useEffect(() => {
         setUserURL(window.location.href)
-    }, [window.location.href])
+    }, [])
+
+    console.log(userURL)
 
     useEffect(() => {
         if(lang === "ru" || lang === "ua"){
@@ -329,9 +331,11 @@ const Main = (props) => {
                 <Container className={classes.priceContainer}>
                     <h2>{t("price.title")}</h2>
                     <div className={classes.priceBlock}>
-                        <h4>990 грн / 38$</h4>
+                        <h4>999 грн / 38$</h4>
                         <img src={price} alt="price_img"/>
-                        <CustomButton text={t("actions.pay2")}/>
+                        <a href="https://secure.wayforpay.com/button/ba3d46ec9259e" target="_blank" rel="noreferrer nofollow">
+                            {t("actions.pay2")}
+                        </a>
                     </div>
                     <div className={classes.pricePluwki}>
                         <h4>{t("price.whatTitle")}</h4>
@@ -345,9 +349,11 @@ const Main = (props) => {
                         </ul>
                     </div>
                     <div className={classes.priceBlock}>
-                        <h4>1990 грн / 76$</h4>
+                        <h4>1999 грн / 76$</h4>
                         <img src={price} alt="price_img"/>
-                        <CustomButton text={t("actions.pay2")}/>
+                        <a href="https://secure.wayforpay.com/button/b669f6a8cb15d" target="_blank" rel="noreferrer nofollow">
+                            {t("actions.pay2")}
+                        </a>
                     </div>
                     <div className={classes.pricePluwki}>
                         <h4>{t("price.whatTitle")}</h4>

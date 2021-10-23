@@ -13,7 +13,7 @@ export const googleApi = {
         let name = formData.name;
         let phone = formData.phone;
         let email = formData.email;
-        let url = formData.url;
+        let url = formData.userURL;
 
         let actionType = formData.actionType
 

@@ -7,14 +7,14 @@ import ModalLayout from '../UI/ModalLayout/ModalLayout'
 import classes from './Thankyou.module.css'
 
 const Thankyou = (props) => {
-    const { onClick, setIsSuccess } = props
+    const { onClick, setIsSuccess, currentLanguage } = props
 
     const history = useHistory()
 
     const handleModal = () => {
         onClick()
         setIsSuccess(false)
-        history.push("/")
+        history.push(`/?lang=${currentLanguage}`)
     }
 
     const { t } = useTranslation()
@@ -28,6 +28,10 @@ const Thankyou = (props) => {
     )
 }
 
-export default connect(null, {
+let mapStateToProps = (state) => ({
+    currentLanguage: state.common.currentLanguage
+})
+
+export default connect(mapStateToProps, {
     setIsSuccess
 })(Thankyou)

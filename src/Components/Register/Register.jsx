@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
 const Register = (props) => {
     const { onClose, actionType, userURL, saveToGoogleTable } = props
 
+    console.log(userURL)
+
     const material = useStyles()
 
     const { t } = useTranslation()
