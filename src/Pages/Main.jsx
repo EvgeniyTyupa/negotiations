@@ -290,8 +290,8 @@ const Main = (props) => {
                         <label className={classes.speakerName}>{t("speaker.name")}</label>
                     </div>
                     <div className={classes.speakerAbout}>
-                        <p>{t("speaker.one")}<br className={classes.brForPhone}/>{t("speaker.one1")}</p>
-                        <p>{t("speaker.two")}<br className={classes.brForPhone}/>{t("speaker.two1")}</p>
+                        <p>{t("speaker.one")}<br className={classes.brForPhone}/> {t("speaker.one1")}</p>
+                        <p>{t("speaker.two")}<br className={classes.brForPhone}/> {t("speaker.two1")}</p>
                         <p>{t("speaker.three")}</p>
                         <p>{t("speaker.four")}</p>
                     </div>
