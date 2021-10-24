@@ -407,6 +407,7 @@ const Main = (props) => {
             <footer className={classes.footer} data-aos="fade-down" data-aos-duration="1500">
                 <h3>{t("footer.title1")}</h3>
                 <h3>{t("footer.title2")}</h3>
+                <h3 className={classes.love}>{t("footer.title3")} <strong>♥️</strong></h3>
                 <Container className={classes.topFooter}>
                     <div className={classes.footBut}>
                         <CustomButton text={t("actions.consultation")} onClick={handleRegisterConsultation}/>

@@ -641,6 +641,12 @@
     width: 30px;
     margin: 0 10px;
 }
+.love {
+    margin-top: 25px !important;
+}
+.love strong {
+    color: #D60000;
+}
 
 @media screen and (max-width: 1024px) {
     .homeHeader {
