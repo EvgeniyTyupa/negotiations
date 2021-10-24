@@ -7,6 +7,10 @@
 
 /* HOME */
 
+.brForPhone {
+    display: none;
+}
+
 .home {
     width: 100%;
     display: flex;
@@ -416,6 +420,9 @@
 .pricePluwki h4 {
     font-size: 30px;
     text-align: center;
+}
+.pricePluwki ul {
+    list-style: none;
 }
 .pricePluwki ul li {
     margin: 10px 0;   
@@ -837,6 +844,7 @@
     }
     .point ul {
         padding-left: 0;
+        list-style: none;
     }
     .point ul li {
         padding-left: 0;
@@ -1039,6 +1047,9 @@
     .point span {
         font-size: 14px;
     }
+    .brForPhone {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -1060,6 +1071,9 @@
     }
     .footBot {
         margin-top: 70px;
+    }
+    .brForPhone {
+        display: none;
     }
 }
 

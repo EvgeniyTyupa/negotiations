@@ -208,12 +208,12 @@ const Main = (props) => {
                 </Container>
             </div>
             {/* DOWNLOAD */}
-            <div className={classes.download}>
+            {/* <div className={classes.download}>
                 <h1>{t("download.one")}</h1>
                 <h1>{t("download.two")}</h1>
                 <h1>{t("download.three")}</h1>
                 <a href="howto.pdf" download data-aos="zoom-in" data-aos-duration="500">{t("actions.download")}</a>
-            </div>
+            </div> */}
             {/* PROGRAM */}
             <div className={classes.program} ref={programRef}  data-aos="fade-up" data-aos-duration="1500">
                 <Container className={classes.programContainer}>
@@ -230,7 +230,7 @@ const Main = (props) => {
                                         <li>{t("program.one.three")}</li>
                                         <li>{t("program.one.four")}</li>
                                     </ul>
-                                    <span>{t("program.one.practic")}</span>
+                                    <span><strong>Практика: </strong>{t("program.one.practic")}</span>
                                 </div>
                                 <div className={classes.point}>
                                     <h4>{t("program.two.title")}</h4>
@@ -242,7 +242,7 @@ const Main = (props) => {
                                         <li>{t("program.two.four")}</li>
                                         <li>{t("program.two.five")}</li>
                                     </ul>
-                                    <span>{t("program.two.practic")}</span>
+                                    <span><strong>Практика: </strong>{t("program.two.practic")}</span>
                                 </div>
                             </div>
                             <div className={classes.side}>
@@ -255,7 +255,7 @@ const Main = (props) => {
                                         <li>{t("program.three.three")}</li>
                                         <li>{t("program.three.four")}</li>
                                     </ul>
-                                    <span>{t("program.three.practic")}</span>
+                                    <span><strong>Практика: </strong>{t("program.three.practic")}</span>
                                 </div>
                                 <div className={classes.point}>
                                     <h4>{t("program.four.title")}</h4>
@@ -266,7 +266,7 @@ const Main = (props) => {
                                         <li>{t("program.four.three")}</li>
                                         <li>{t("program.four.four")}</li>
                                     </ul>
-                                    <span>{t("program.four.practic")}</span>
+                                    <span><strong>Практика: </strong>{t("program.four.practic")}</span>
                                 </div>
                             </div>
                         </div>
@@ -290,8 +290,8 @@ const Main = (props) => {
                         <label className={classes.speakerName}>{t("speaker.name")}</label>
                     </div>
                     <div className={classes.speakerAbout}>
-                        <p>{t("speaker.one")}</p>
-                        <p>{t("speaker.two")}</p>
+                        <p>{t("speaker.one")}<br className={classes.brForPhone}/>{t("speaker.one1")}</p>
+                        <p>{t("speaker.two")}<br className={classes.brForPhone}/>{t("speaker.two1")}</p>
                         <p>{t("speaker.three")}</p>
                         <p>{t("speaker.four")}</p>
                     </div>
